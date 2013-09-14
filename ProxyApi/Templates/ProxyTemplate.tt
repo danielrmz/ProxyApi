@@ -89,9 +89,13 @@
 		return invoke.call(this, "<#= method.Url #>", "<#= method.Type.ToString().ToLower() #>", 
 		<# if (method.UrlParameters.Any()) { #>
 			{
-			<# foreach (var parameter in method.UrlParameters) { #>
-				<#= parameter.Name #>: arguments[<#= parameter.Index #>],
-			<# } #>
+			<# 
+			var p = new List<string>();
+			foreach (var parameter in method.UrlParameters) { 
+				p.Add(string.Format("{0}: arguments[{1}]", parameter.Name, parameter.Index));
+			}
+			#>
+			<#= string.Join(",", p) #>
 			}
 		<# } else { #>
 			{}
