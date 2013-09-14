@@ -11,7 +11,8 @@
 		throw "jQuery is required";
 	}
 
-	$.proxies = $.proxies || {};
+	var proxies = {};
+	//$.proxies = $.proxies || {};
 
 	function getQueryString(params, queryString) {
 		queryString = queryString || "";
@@ -72,7 +73,7 @@
 	/* Proxies */
 
 	<# foreach(var definition in this.Definitions) { #>
-	$.proxies.<#= definition.Name #> = {
+	proxies['<#= definition.Name #>'] = {
 		defaultOptions: {},
 		antiForgeryToken: defaultAntiForgeryTokenAccessor,
 <# foreach(var method in definition.ActionMethods) { #>
@@ -109,4 +110,12 @@
 <# } #>
 };
 	<# } #>
+
+	if(typeof define === 'function' && define.amd) {
+		define(function() { return proxies; });
+	} else {
+		$.proxies = proxies;
+	}
+
+	return proxies;
 }(jQuery));
