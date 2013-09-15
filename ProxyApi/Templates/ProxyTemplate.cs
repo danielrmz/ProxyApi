@@ -37,7 +37,6 @@ namespace ProxyApi.Templates
 	}
 
 	var proxies = {};
-	//$.proxies = $.proxies || {};
 
 	function getQueryString(params, queryString) {
 		queryString = queryString || """";
@@ -86,7 +85,7 @@ namespace ProxyApi.Templates
 				ajaxOptions.headers = ajaxOptions.headers || {};
 				ajaxOptions.headers[""");
             
-            #line 62 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 61 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ValidateHttpAntiForgeryTokenAttribute.RequestVerificationTokenHeader));
             
             #line default
@@ -95,14 +94,14 @@ namespace ProxyApi.Templates
                     "AntiForgeryTokenAccessor() {\r\n\t\treturn $(\"input[name=__RequestVerificationToken]" +
                     "\").val();\r\n\t};\r\n\r\n\t/* Proxies */\r\n\r\n\t");
             
-            #line 75 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 74 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  foreach(var definition in this.Definitions) { 
             
             #line default
             #line hidden
             this.Write("\tproxies[\'");
             
-            #line 76 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 75 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(definition.Name));
             
             #line default
@@ -110,14 +109,14 @@ namespace ProxyApi.Templates
             this.Write("\'] = {\r\n\t\tdefaultOptions: {},\r\n\t\tantiForgeryToken: defaultAntiForgeryTokenAccesso" +
                     "r,\r\n");
             
-            #line 79 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 78 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  foreach(var method in definition.ActionMethods) { 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 81 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 80 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
 
 	var allParameters = method.UrlParameters.AsEnumerable();
 	
@@ -131,42 +130,42 @@ namespace ProxyApi.Templates
             #line hidden
             this.Write("\t");
             
-            #line 89 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 88 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method.Name));
             
             #line default
             #line hidden
             this.Write(": function(");
             
-            #line 89 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 88 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameterList));
             
             #line default
             #line hidden
             this.Write(") {\r\n\t\treturn invoke.call(this, \"");
             
-            #line 90 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 89 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method.Url));
             
             #line default
             #line hidden
             this.Write("\", \"");
             
-            #line 90 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 89 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method.Type.ToString().ToLower()));
             
             #line default
             #line hidden
             this.Write("\", \r\n\t\t");
             
-            #line 91 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 90 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  if (method.UrlParameters.Any()) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t{\r\n\t\t\t");
             
-            #line 93 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 92 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  
 			var p = new List<string>();
 			foreach (var parameter in method.UrlParameters) { 
@@ -178,63 +177,63 @@ namespace ProxyApi.Templates
             #line hidden
             this.Write("\t\t\t");
             
-            #line 99 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 98 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(",", p)));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t}\r\n\t\t");
             
-            #line 101 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 100 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("\t\t\t{}\r\n\t\t");
             
-            #line 103 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 102 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 104 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 103 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  if (method.BodyParameter != null) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t, arguments[");
             
-            #line 105 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 104 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method.BodyParameter.Index));
             
             #line default
             #line hidden
             this.Write("]);\r\n\t\t");
             
-            #line 106 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 105 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("\t\t\t);\r\n\t\t");
             
-            #line 108 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 107 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t},\r\n");
             
-            #line 110 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 109 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("};\r\n\t");
             
-            #line 112 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
+            #line 111 "C:\Users\dramirez\Documents\GitHub\ProxyApi\ProxyApi\Templates\ProxyTemplate.tt"
  } 
             
             #line default

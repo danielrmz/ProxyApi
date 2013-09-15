@@ -12,7 +12,6 @@
 	}
 
 	var proxies = {};
-	//$.proxies = $.proxies || {};
 
 	function getQueryString(params, queryString) {
 		queryString = queryString || "";
